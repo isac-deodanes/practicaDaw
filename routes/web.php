@@ -31,7 +31,13 @@ Route::get('/', function () {
 // Route::get('/crear', function () {
 //     return view('empleado.create');
 // });
- 
+route::get('/home', function () {
+    return view('home');
+})->name('home');
+route::get('/prueba', function () {
+    return view('prueba');
+})->name('prueba');
+
 
 //OTRA FORMA DE ENRUTAR
 Route::resource('empleado', EmpleadoController::class);

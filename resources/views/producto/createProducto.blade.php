@@ -3,9 +3,8 @@
 
 
     <!-- <link rel="stylesheet" href="css.css"> -->
-    <div class="nav-2">
-        <a href="{{ route('producto.index') }}">Volver al listado</a>
-
+    <div class="nav-usuario">
+        <a class="btn-regresar" href="{{ route('producto.index') }}">Volver al listado</a>
     </div>
 
     <h1>Nuevo Producto</h1>

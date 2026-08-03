@@ -2,16 +2,16 @@
 
 @section('content')
 
-    <div class="nav">
-        <a href="{{ route('empleado.create') }}">Nuevo Empleado</a>
-        <a href="{{ route('reporte.empleado') }}">Generar reporte</a>
+    <div class="nav-usuario">
+        <a class="btn-regresar" href="{{ route('empleado.create') }}">Nuevo Empleado</a>
+        <a class="btn-reporte" href="{{ route('reporte.empleado') }}">Generar reporte</a>
 
     </div>
 
      @if (session('mensaje'))
         <script>
             alert("{{ session('mensaje') }}");
-
+         
         </script>
         
     @endif

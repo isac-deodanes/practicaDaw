@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <div class="nav">
-        <a href="{{ url('proveedor/create') }}">Nuevo Producto</a>
-        <a href="{{ route('reporte.proveedor') }}">Generar reporte</a>
+    <div class="nav-usuario">
+        <a class="btn-regresar" href="{{ url('proveedor/create') }}">Nuevo Proveedor</a>
+        <a class="btn-reporte" href="{{ route('reporte.proveedor') }}">Generar reporte</a>
 
     </div>
     <h1>Lista de Proveedor</h1>
@@ -33,7 +33,7 @@
 
                 <td>
                     <a class="boton-edit" href="{{ route('proveedor.edit', $proveedor->id) }}">Editar</a>
-                    <form action="{{ route('proveedor.destroy', $proveedor->id) }}" method="POST" style="display:inline">
+                    <form class="form-boton-delete" action="{{ route('proveedor.destroy', $proveedor->id) }}" method="POST" style="display:inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('¿Seguro de eliminar?')">Eliminar</button>

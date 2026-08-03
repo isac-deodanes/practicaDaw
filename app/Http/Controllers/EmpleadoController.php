@@ -12,10 +12,10 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        
         // return view('empleado.index');
         $datos['empleados']= Empleado::paginate(10);
-        return view('empleado.index',$datos);
+        return view('Empleado.index',$datos);
     }
 
     /**
@@ -24,7 +24,7 @@ class EmpleadoController extends Controller
     public function create()
     {
         //
-        return view('empleado.create');
+        return view('Empleado.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class EmpleadoController extends Controller
     {
         //
         $empleado = Empleado::findOrFail($id);
-        return view('empleado.edit', compact('empleado'));
+        return view('Empleado.edit', compact('empleado'));
     }
 
     /**

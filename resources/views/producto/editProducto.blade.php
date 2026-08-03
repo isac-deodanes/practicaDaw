@@ -2,8 +2,8 @@
 
 @extends('layouts.app')
 @section('content')
-  <div class="nav-2">
-    <a href="{{ route('producto.index') }}">Volver al listado</a>
+  <div class="nav-usuario">
+    <a class="btn-regresar" href="{{ route('producto.index') }}">Volver al listado</a>
 
   </div>
 

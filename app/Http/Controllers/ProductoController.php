@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\producto;
 use Illuminate\Http\Request;
  
 class ProductoController extends Controller
@@ -13,8 +13,7 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        // return view('empleado.index');
-        $productos['productos']= Producto::paginate(10);
+        $productos['productos']= producto::paginate(10);
         return view('producto.indexProducto',$productos);
     }
 
@@ -33,7 +32,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $datosProducto=request()->except('_token');
-        Producto::insert($datosProducto);  //este cmd inserta a la db
+        producto::insert($datosProducto);  //este cmd inserta a la db
         // return response ()->json($datosEmpleado);
         return redirect('producto')->with('mensaje', 'producto agregado con éxito');
 
@@ -42,7 +41,7 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Producto $producto)
+    public function show(producto $producto)
     {
         //
     }
@@ -53,7 +52,7 @@ class ProductoController extends Controller
     public function edit($id)
     {
         //
-        $producto = Producto::findOrFail($id);
+        $producto = producto::findOrFail($id);
         return view('producto.editProducto', compact('producto'));
     }
 
@@ -63,7 +62,7 @@ class ProductoController extends Controller
      public function update(Request $request, $id)
     {
         $datosProducto = $request->except(['_token', '_method']);
-        Producto::where('id', '=', $id)->update($datosProducto);
+        producto::where('id', '=', $id)->update($datosProducto);
         return redirect('producto')->with('mensaje', 'producto actualizado');
     }
 
@@ -73,7 +72,7 @@ class ProductoController extends Controller
      public function destroy($id)
     {
         // funcion para eliminar el registro
-        Producto::destroy($id);
+        producto::destroy($id);
         return redirect('producto')->with('mensaje', 'producto eliminado');
     }
 

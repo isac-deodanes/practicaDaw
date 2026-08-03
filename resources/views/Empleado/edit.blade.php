@@ -4,8 +4,8 @@
 
 @section('content')
 
-    <div class="nav-2">
-        <a href="{{ route('empleado.index') }}">Volver al listado</a>
+    <div class="nav-usuario">
+        <a class="btn-regresar" href="{{ route('empleado.index') }}">Volver al listado</a>
         
     </div>
     <h1>Editar Empleado</h1>

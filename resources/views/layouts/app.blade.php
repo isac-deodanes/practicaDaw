@@ -10,9 +10,8 @@
             justify-content: flex-start;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #1e272e;
+            background-color: rgb(12, 12, 12);
             /* Color oscuro profesional */
             font-family: Arial, sans-serif;
             color: #ecf0f1;
@@ -64,7 +63,7 @@
             text-decoration: none;
             color: rgb(210 210 210);
             font-weight: bold;
-            padding-left: 23px;
+            padding: 0px 30px;
         }
 
         button {
@@ -73,6 +72,7 @@
             border: none;
             padding: 8px 16px;
             border-radius: 5px;
+            margin: 35px 10px 10px;
             cursor: pointer;
         }
 
@@ -96,39 +96,39 @@
 
         .nav {
             display: flex;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgb(12, 12, 12);
+
             align-items: center;
-            justify-content: space-around;
+            justify-content: flex-end;
             width: 100%;
-            height: 12vh;
-              margin-bottom: 50px;
+            padding: 50px 0px;
+
+            margin-bottom: 50px;
         }
 
-        /* FORMUALARIo create */
-        .nav-2 {
+        .nav-usuario {
             display: flex;
-            background-color: rgba(0, 0, 0, 0.3);
-            align-items: center;
-            justify-content:flex-start;
-            width: 100%;
-            height: 12vh;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            width: 95%;
+            margin-bottom: 55px;
         }
-         form {
-            background: #fff;
-            /* padding: 20px; */
+
+        form {
+            background: #141313;
+            padding: 47px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            box-shadow: 5px 7px 8px 2px rgb(195 195 195 / 10%);
+            text-align: left;
             width: 45%;
         }
-        .form-boton-delete{
-             background: transparent;
+
+        .form-boton-delete {
+            background: transparent;
             padding: 0px;
             border-radius: 0px;
-            box-shadow:0px;
+            box-shadow: 0px;
             text-align: center;
-            width:0;
+            width: 0;
         }
 
         label {
@@ -138,26 +138,74 @@
             color: #9a9c9c;
         }
 
-        input, select{
-            width: 90%;
+        input,
+        select {
+            width: 100%;
             padding: 8px;
             margin-top: 5px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            box-sizing: border-box;
         }
-        select{
+
+        select {
             margin-bottom: 20px;
         }
 
-       
+        main {
+            padding: 20px;
+            width: 90%;
+            /* height: 58vh; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
+        }
 
+        .btn-regresar,
+        .btn-reporte {
+            display: inline-block;
+            padding-left: 0px;
+            border-radius: 5px;
+            padding: 10px;
+
+        }
+
+        .btn-regresar {
+            background-color: rgb(24, 93, 255);
+        }
+
+        .btn-reporte {
+            background-color: red;
+        }
+
+        footer {
+            display: flex;
+            background-color: rgb(12, 12, 12);
+
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 300px;
+            padding: 50px 0px;
+        }
     </style>
 </head>
 
 <body>
-
-    @yield('content')
+    <nav class="nav">
+        <a href="{{ route('prueba') }}">Inicio</a>
+        <a href="{{ route('empleado.index') }}">Empleados</a>
+        <a href="{{ route('producto.index') }}">Productos</a>
+        <a href="{{ route('proveedor.index') }}">Proveedores</a>
+    </nav>
+    <main>
+        @yield('content')
+    </main>
+    <footer>
+        <p>&copy; 2026 Portal de proveedores. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 
