@@ -11,15 +11,11 @@
             flex-direction: column;
             align-items: center;
             margin: 0;
-            background-color: rgb(12, 12, 12);
-            /* Color oscuro profesional */
+            background-color: rgb(224, 222, 222);
             font-family: Arial, sans-serif;
-            color: #ecf0f1;
+            color: #4b4b4b;
         }
 
-        h1 {
-            /* height: 20vh; */
-        }
 
         .container {
             width: 90%;
@@ -61,7 +57,8 @@
 
         a {
             text-decoration: none;
-            color: rgb(210 210 210);
+            color: #4b4b4b;
+
             font-weight: bold;
             padding: 0px 30px;
         }
@@ -96,14 +93,35 @@
 
         .nav {
             display: flex;
-            background-color: rgb(12, 12, 12);
-
+            background-color: rgb(215 215 215);
+            justify-content: center;
             align-items: center;
-            justify-content: flex-end;
             width: 100%;
             padding: 50px 0px;
-
+            flex-direction: column-reverse;
             margin-bottom: 50px;
+            box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navegacion {
+            width: 100%;
+            text-align: center;
+            font-size: 23px;
+        }
+
+        .cont-perfil {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            /* border: 1px solid rgb(255, 255, 255); */
+        }
+
+        .perfil {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(181, 181, 182);
+            border-radius: 50%;
+            margin-right: 80px;
         }
 
         .nav-usuario {
@@ -111,10 +129,11 @@
             justify-content: space-between;
             width: 95%;
             margin-bottom: 55px;
+
         }
 
         form {
-            background: #141313;
+            background: #fefefe;
             padding: 47px;
             border-radius: 10px;
             box-shadow: 5px 7px 8px 2px rgb(195 195 195 / 10%);
@@ -174,15 +193,20 @@
 
         .btn-regresar {
             background-color: rgb(24, 93, 255);
+            color: #ebdbdb;
+
         }
 
         .btn-reporte {
             background-color: red;
+            color: #ebdbdb;
+
         }
 
         footer {
             display: flex;
-            background-color: rgb(12, 12, 12);
+            background-color: rgb(224, 222, 222);
+
 
             align-items: center;
             justify-content: center;
@@ -195,10 +219,15 @@
 
 <body>
     <nav class="nav">
-        <a href="{{ route('prueba') }}">Inicio</a>
-        <a href="{{ route('empleado.index') }}">Empleados</a>
-        <a href="{{ route('producto.index') }}">Productos</a>
-        <a href="{{ route('proveedor.index') }}">Proveedores</a>
+        <div class="navegacion">
+            <a href="{{ route('prueba') }}">INICIO</a>
+            <a href="{{ route('empleado.index') }}">EMPLEADOS</a>
+            <a href="{{ route('producto.index') }}">PRODUCTOS</a>
+            <a href="{{ route('proveedor.index') }}">PROVEEDORES</a>
+        </div>
+        <div class="cont-perfil">
+            <div class="perfil"></div>
+        </div>
     </nav>
     <main>
         @yield('content')
