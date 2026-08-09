@@ -1,0 +1,297 @@
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    background: #f7f7f7;
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+}
+
+.nav-container {
+
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 41px 34px;
+}
+
+
+/* =========================
+   NOMBRE DEL SISTEMA
+========================= */
+
+.brand {
+    margin-right: 40px;
+}
+
+.brand a {
+
+    padding: 0px 0px !important;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.nav-menu {
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    flex: 1;
+}
+
+.nav-menu a {
+
+    text-decoration: none;
+
+    color: #333;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #1e3a8a;
+}
+
+
+/* =========================
+   PERFIL
+========================= */
+
+.profile {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-left: auto;
+
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 22px;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+#cont-perfil {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+#perfil {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(181, 181, 182);
+    border-radius: 50%;
+    /* padding-right: 50px; */
+}
+
+.card-perfil {
+    position: absolute;
+    top: 26px;
+    right: 54px;
+    width: 200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: none;
+
+
+    .cont-perfil-foto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .perfil-foto {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(196, 196, 255);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .btn-cerrar-session {
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+    }
+
+    #rol {
+        text-align: center;
+        margin-bottom: 16px;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+}
+
+/* =========================
+   HAMBURGUESA
+========================= */
+
+.menu-toggle {
+
+    display: none;
+
+    border: none;
+    background: transparent !important;
+
+    font-size: 30px;
+
+    color: #1e3a8a;
+
+    cursor: pointer;
+    padding: 0px !important;
+}
+
+
+/* Ocultamos estos elementos
+   en escritorio */
+
+.mobile-profile,
+.mobile-logout {
+    display: none;
+}
+
+
+
+/* para dispositivos móviles  */
+
+@media (max-width: 768px) {
+
+    .nav-container {
+
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        padding: 14px 20px;
+    }
+
+
+    /* Nombre */
+
+    .brand {
+        margin: 0;
+    }
+
+
+    /* Mostrar hamburguesa */
+
+    .menu-toggle {
+        display: block;
+        margin: 10px 10px 10px 10px !important;
+    }
+
+
+    /* Ocultar perfil de escritorio */
+
+    .profile {
+        display: none;
+    }
+
+
+    /* Menú cerrado */
+
+    .nav-menu {
+
+        display: none;
+
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        margin-top: 15px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        border-top: 1px solid #eeeeee;
+    }
+
+
+    /* Menú abierto */
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+
+    .nav-menu a {
+
+        padding: 15px 10px;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+
+    .nav-menu a:hover {
+
+        background: #f5f7fa;
+    }
+
+
+    /* Mostrar perfil dentro del menú */
+
+    .mobile-profile,
+    .mobile-logout {
+        display: block;
+    }
+   
+
+    #cont-perfil {
+        display: none;
+
+    }
+
+    #perfil {
+        width: 96%;
+        height: 0px;
+        background-color: rgb(255 255 255);
+        border-radius: 0%;
+        padding-right: 0px;
+        border-bottom: 1px solid #eeeeee;
+        padding: 15px 10px 30px 10px;
+    }
+
+    .card-perfil{
+        right: 111px;
+    }
+}
