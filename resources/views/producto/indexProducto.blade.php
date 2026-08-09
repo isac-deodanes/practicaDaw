@@ -2,27 +2,27 @@
 
 @section('content')
 
+    <h1>Lista de productos</h1>
     <div class="nav-usuario">
         <a class="btn-regresar" href="{{ url('producto/create') }}">Nuevo Producto</a>
         <a class="btn-reporte" href="{{ route('reporte.producto') }}">Generar reporte</a>
 
     </div>
-    <h1>Lista de productos</h1>
 
     
     @if (session('mensaje'))
         <div style="color: green;">{{ session('mensaje') }}</div>
     @endif
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>marca</th>
-               
-                <th>Acciones</th>
-            </tr>
-        </thead>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>marca</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
         <tbody>
         @foreach ($productos as $producto)
             <tr>
@@ -42,7 +42,8 @@
             </tr>
         @endforeach
         </tbody>
-    </table>
+        </table>
+    </div>
 
     {{ $productos->links() }}
 @endsection
