@@ -14,7 +14,39 @@ Proyecto práctico en Laravel enfocado en dominar el patrón MVC y las operacion
 
 Proyecto de práctica orientado a reforzar el patrón **MVC** y las operaciones **CRUD** en Laravel mediante un sistema simple de inventario, con tres entidades principales: **Productos**, **Proveedores** y **Empleados**. Cada entidad cuenta además con su propio reporte exportable en PDF.
 
-> 📸 *Capturas de pantalla — próximamente.*
+Capturas en web:
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshot/Captura desde 2026-08-30 23-34-33.png" width="300">
+      <br><b>Login 1</b>
+    </td>
+    <td align="center">
+      <img src="screenshot/Captura desde 2026-08-30 23-35-14.png" width="300">
+      <br><b>Dashoboard 2</b>
+    </td>
+    <td align="center">
+      <img src="screenshot/Captura desde 2026-08-30 23-36-08.png" width="300">
+      <br><b>Empleados 3</b>
+    </td>
+    <td align="center">
+      <img src="screenshot/Captura desde 2026-08-30 23-36-24.png" width="300">
+      <br><b>Reporte 4</b>
+    </td>
+    <td align="center">
+      <img src="screenshot/Captura desde 2026-08-30 23-37-13.png" width="300">
+      <br><b>Formulario de ingreso 5</b>
+    </td>
+       <td align="center">
+      <img src="screenshot/Captura desde 2026-08-30 23-41-45.png" width="300" height="200">
+      <br><b>Login para Android</b>
+    </td>
+       <td align="center">
+      <img src="screenshot/Captura desde 2026-08-30 23-42-35.png" width="300" height="200">
+      <br><b>Formulario de ingreso 5</b>
+    </td>
+  </tr>
+</table>   
 
 ---
 
