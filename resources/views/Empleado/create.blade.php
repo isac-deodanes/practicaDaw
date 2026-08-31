@@ -6,18 +6,20 @@
         <a class="btn-regresar" href="{{ route('empleado.index') }}">Volver al listado</a>
         
     </div>
-    
     <h1>Nuevo Empleado</h1>
     <form action="{{ route('empleado.store') }}" method="POST">
         @csrf
         <label>Nombre:</label>
-        <input type="text" name="nombre" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{2,50}"><br>
-
+        <input type="text" name="name" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{2,50}"><br>
+  
         <label>Apellido:</label>
         <input type="text" name="apellido" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{2,50}"><br>
-
+         
         <label>Correo:</label>
-        <input type="email" name="correo" required><br>
+        <input type="email" name="email" required><br>
+
+        <label>Contraseña de prueba:</label>
+        <input type="number" name="password" required><br>
 
         <label>DUI:</label>
         <input type="text" name="dui" required pattern="^\d{8}-\d{1}$"><br>

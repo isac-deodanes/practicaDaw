@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    background-color: rgb(251, 250, 250);
+    background-color: rgb(207 212 230);
     font-family: Arial, sans-serif;
     color: #4b4b4b;
 }
@@ -72,8 +72,14 @@ button {
     border: none;
     padding: 8px 16px;
     border-radius: 5px;
-    margin: 35px 10px 10px;
+    margin: 15px 0px 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: 700;
+    font-size: 15px;
 }
 
 .boton-edit {
@@ -83,6 +89,11 @@ button {
     padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 70%; */
+
 }
 
 button:hover {
@@ -116,7 +127,7 @@ button:hover {
 .nav-usuario {
     display: flex;
     justify-content: space-between;
-    width: 65%;
+    width: 100%;
     margin-bottom: 25px;
 
 }
@@ -163,8 +174,8 @@ select {
 
 main {
     padding: 20px;
-    width: 90%;
-
+    width: 70%;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -177,7 +188,10 @@ main {
     padding-left: 0px;
     border-radius: 5px;
     padding: 10px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 .btn-regresar {
@@ -234,6 +248,17 @@ h2 {
     margin-bottom: 50px;
 }
 
+#delet-formato-form{
+    background: #fefefe !important; 
+    padding: 0px !important; 
+    border-radius: 0px !important; 
+    box-shadow: none !important;
+    width: 58%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 768px) {
     .grafica {
         min-height: 260px;
@@ -284,7 +309,18 @@ h2 {
     padding: 35px 31px;
     width: 60%;
     color: white;
+}
 
+.card>div:nth-child(1) {
+    background: #4e73df;
+}
+
+.card>div:nth-child(2) {
+    background: #1cc88a;
+}
+
+.card>div:nth-child(3) {
+    background: #f6c23e;
 }
 
 .ultimo-registro {
@@ -299,7 +335,7 @@ h2 {
 
 footer {
     display: flex;
-    background-color: rgb(251, 250, 250);
+    background-color: rgb(207 212 230);
 
     align-items: center;
     justify-content: center;

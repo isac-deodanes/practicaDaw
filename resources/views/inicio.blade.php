@@ -19,10 +19,10 @@
 
     <div class="ultimo-registro">
         <h3>Últimos Registros</h3>
-        <div><strong>Último Empleado Registrado:</strong> {{ $ultimoEmpleado->nombre ?? 'Sin registro' }}
+        <div><strong>Último Empleado Registrado:</strong> {{ $ultimoEmpleado->user->name ?? 'Sin registro' }}
             {{$ultimoEmpleado->apellido ?? ''}}
         </div>
-        <div><strong>Último Proveedor Registrado:</strong> {{ $ultimoProveedor->nombre_proveedor ?? 'Sin registro' }}</div>
+        <div><strong>Último Proveedor Registrado:</strong> {{ $ultimoProveedor->user->name ?? 'Sin registro' }}</div>
         <div><strong>Último Producto Registrado:</strong> {{ $ultimoProducto->nombre ?? 'Sin registro' }}</div>
     </div>
 

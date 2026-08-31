@@ -8,23 +8,29 @@
 
     </div>
  
-    <h1>editar Proveedor</h1>
+    <h1>Editar Proveedor</h1>
 
     <form action="{{ route('proveedor.update',$proveedor->id) }}" method="POST">
         @csrf
         @method('PUT')  
 
         <label>Nombre del proveedor:</label>
-        <input type="text" name="nombre_proveedor" value="{{$proveedor->nombre_proveedor}}" required><br>
+        <input type="text" name="name" value="{{ $proveedor->user->name }}" required><br>
+
+        <label>Correo electronico:</label>
+        <input type="email" name="email" value="{{ $proveedor->user->email }}" required><br>
+
+        <label>Contraseña:</label>
+        <input type="password" name="password" value="{{ $proveedor->user->password }}" required><br>
 
         <label>Telefono:</label>
         <input type="number" name="telefono" value="{{ $proveedor->telefono }}" required><br>
 
-        <label>Correo electronico:</label>
-        <input type="gmail" name="correo" value="{{$proveedor->correo }}" required><br>
+        <label>Direccion:</label>
+        <input type="text" name="direccion" value="{{ $proveedor->direccion }}" required>
 
-
-        </select>
+        <label>Tipo de proveedor:</label>
+        <input type="text" name="tipo_proveedor" value="{{ $proveedor->tipo_proveedor }}" required>
 
         <button class="boton-edit" type="submit">Actualizar</button>
     </form>

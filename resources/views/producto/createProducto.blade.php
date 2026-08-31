@@ -18,7 +18,7 @@
         <input type="number" name="Precio" required><br>
 
         <label>Marca:</label>
-        <input type="txt" name="Marca" required><br>
+        <input type="text" name="Marca" required><br>
 
 
         </select>

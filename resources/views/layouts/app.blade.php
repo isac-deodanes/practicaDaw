@@ -28,24 +28,13 @@
                 <a href="{{ route('producto.index') }}">PRODUCTOS</a>
                 <a href="{{ route('proveedor.index') }}">PROVEEDORES</a>
                 <!-- Perfil -->
-                <div id="" class="mobile-profile">
-                    MI PERFIL
-                     {{-- <div class="card-perfil">
-                        <div class="cont-perfil-foto">
-                            <div class="perfil-foto">foto</div>
-                        </div>
-                        <div id="rol">Administrador</div>
-                        <div id="name">Nombre:</div>
-                        <div id="gmail">Email:</div>
-                        <div class="btn-cerrar-session">
-                            <button id="logout">Cerrar session</button>
-                        </div>
 
-                    </div> --}}
-                </div>
-                <a href="#" class="mobile-logout">
-                    CERRAR SESION
-                </a>
+                 <a href="#" class="mobile-profile">MI PERFIL</a>
+                <form id="delet-formato-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="mobile-logout" id="logout" type="submit" style="">CERRAR CESSION</button>
+                </form>
+
             </div>
             <div id="cont-perfil">
                 <div id="perfil">
@@ -53,11 +42,16 @@
                         <div class="cont-perfil-foto">
                             <div class="perfil-foto">foto</div>
                         </div>
-                        <div id="rol">Administrador</div>
-                        <div id="name">Nombre: {{Auth::user()}}</div>
-                        <div id="gmail">Email:</div>
+                        @auth
+                            <div id="rol">{{ auth()->user()->rol }}</div>
+                            <div id="name">Nombre:  {{ auth()->user()->name}}</div><br>
+                            <div id="gmail">Email:  {{ auth()->user()->email }}</div>
+                        @endauth
                         <div class="btn-cerrar-session">
-                            <button id="logout">Cerrar session</button>
+                            <form id="delet-formato-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button id="logout" type="submit">Cerrar sesión</button>
+                            </form>
                         </div>
 
                     </div>

@@ -15,14 +15,14 @@
         @method('PUT')
 
         <label>Nombre:</label>
-        <input type="text" name="nombre" value="{{ $empleado->nombre }}" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{2,50}"><br>
+        <input type="text" name="name" value="{{ $empleado->user->name }}" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{2,50}"><br>
 
         <label>Apellido:</label>
         <input type="text" name="apellido" value="{{ $empleado->apellido }}" required
             pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{2,50}"><br>
 
         <label>Correo:</label>
-        <input type="email" name="correo" value="{{ $empleado->correo }}" required><br>
+        <input type="email" name="email" value="{{ $empleado->user->email }}" required><br>
 
         <label>DUI:</label>
         <input type="text" name="dui" value="{{ $empleado->dui }}" required pattern="^\d{8}-\d{1}$"><br>

@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            // fk de usuario
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained('users')
+                ->onDelete('cascade');
+
             $table->string('apellido');
-            $table->string('correo');
             $table->string('dui');
             $table->integer('telefono');
             $table->double('salario');

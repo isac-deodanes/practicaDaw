@@ -24,7 +24,13 @@
 
         </header>
 
-        <form action="{{ route('login') }}" method="POST">
+        <div class="demo-credentials" style="background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 10px; padding: 12px; margin-bottom: 18px; font-size: 0.95rem; color: #1f2937;">
+            <strong>Usuario demo:</strong><br>
+            Email: <b>admin@demo.com</b><br>
+            Contraseña: <b>12345678</b>
+        </div>
+
+        <form action="{{ route('login.process') }}" method="POST">
 
             @csrf
             <div class="form-group">
@@ -72,13 +78,7 @@
 
             <div class="separator"></div>
 
-            <div class="test-user">
-
-                <a href="#">
-                    Crear usuario de demostracion
-                </a>
-
-            </div>
+           
 
         </div>
 

@@ -11,35 +11,37 @@ use App\Http\Controllers\reporteProductoController;
 use App\Http\Controllers\reporteProveedorController;
 
 
-
-// Route::get('/', function () {
-//     return view('home');
-// });
-
-// route::get('/', function () {
-//     return view('login');
-// })->name('login');
-
-Route::get('/login', [AuthController::class, 'showLogin'])
+Route::get('/', [AuthController::class, 'showLogin'])
     ->name('login');
-
-Route::post('/login', [AuthController::class, 'login']);
-
-
-Route::post('/logout', [AuthController::class, 'logout'])
-    ->name('logout');
     
-// route::resource('login', AuthController::class);
-//OTRA FORMA DE ENRUTAR
-route::resource('inicio', DashboardController::class);
-Route::resource('empleado', EmpleadoController::class);
-Route::resource('producto', ProductoController::class);
-Route::resource('proveedor', ProveedorController::class);
-// Ruta para reporte 
-Route::get('/reporte-empleados', [reposteEmpleadoController::class, 'generar'])->name('reporte.empleado');
-// Ruta para reporte 
-Route::get('/reporte-producto', [reporteProductoController::class, 'generar'])->name('reporte.producto'); 
-Route::get('/reporte-proveedor', [reporteProveedorController::class, 'generar'])->name('reporte.proveedor'); 
+Route::middleware('guest')->group(function () {
+    
+    Route::post('/login', [AuthController::class, 'login'])
+        ->name('login.process');
+    
+});
+        
+Route::middleware('auth',)->group(function () {
+            
+    Route::post('/logout', [AuthController::class, 'logout'])
+    ->name('logout');
+});
+    
+// podria separar rutas por su propio rol, pero como es una demo para
+// mostrar las rutas para un rol autenticado
+route::middleware(['auth'])->group(function(){
+    //OTRA FORMA DE ENRUTAR
+    route::get('inicio',[ DashboardController::class,'index'])->name('inicio.index');
+    Route::resource('empleado', EmpleadoController::class);
+    Route::resource('producto', ProductoController::class);
+    Route::resource('proveedor', ProveedorController::class);
+
+    // Ruta para reporte 
+    Route::get('/reporte-empleados', [reposteEmpleadoController::class, 'generar'])->name('reporte.empleado');
+    Route::get('/reporte-producto', [reporteProductoController::class, 'generar'])->name('reporte.producto'); 
+    Route::get('/reporte-proveedor', [reporteProveedorController::class, 'generar'])->name('reporte.proveedor'); 
+});
+
 
 
 

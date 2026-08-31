@@ -12,11 +12,15 @@
     </style> 
 </head> 
 <body> 
+    @php
+        $contEmpleado = 1
+    @endphp
     <h1>Listado de Empleados</h1> 
  
     <table>
         <thead>
             <tr>
+                <th>N.</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Correo</th>
@@ -30,9 +34,10 @@
         <tbody>
         @foreach ($empleados as $empleado)
             <tr>
-                <td>{{ $empleado->nombre }}</td>
+                <td>{{ $contEmpleado++ }}</td>
+                <td>{{ $empleado->user->name }}</td>
                 <td>{{ $empleado->apellido }}</td>
-                <td>{{ $empleado->correo }}</td>
+                <td>{{ $empleado->user->email }}</td>
                 <td>{{ $empleado->dui }}</td>
                 <td>{{ $empleado->telefono }}</td>
                 <td>{{ $empleado->salario }}</td>

@@ -6,22 +6,22 @@ new Chart(grafica,{
     data: {
         labels: [
             'Empleados',
-            'Productos',
-            'Proveedores'
+            'Proveedores',
+            'Productos'
         ],
 
         datasets: [{
             label: 'Cantidad de registros',
             data: [
                 empleados,
-                productos,
-                proveedores
+                proveedores,
+                productos
             ],
             backgroundColor: [
                 '#4e73df',
                 '#1cc88a',
                 '#f6c23e'
-            ],
+            ], 
             borderWidth: 1
         }]
     },

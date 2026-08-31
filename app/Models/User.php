@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Empleado;
+use App\Models\proveedores;
 
 class User extends Authenticatable
 {
@@ -21,8 +23,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol'
     ];
- 
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -44,5 +47,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function empleado()
+    {
+        return $this->hasOne(Empleado::class);
+    }
+
+    public function proveedores(){
+        return $this->hasMany(proveedores::class);
     }
 }
