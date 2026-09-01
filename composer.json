@@ -55,6 +55,9 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+        "build": [
+            "composer install --no-dev --optimize-autoloader"
         ]
     },
     "extra": {

@@ -1,2 +1,4 @@
-storage/logs/
-storage/app/   
+vendor
+node_modules
+.env
+.env.example
