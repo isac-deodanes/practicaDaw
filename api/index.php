@@ -1,6 +1,6 @@
 <?php
 
-// 1. Crear directorios temporales en /tmp si no existen
+// 1. Crear las carpetas requeridas en /tmp si no existen
 $storageDirs = [
     '/tmp/storage/app',
     '/tmp/storage/framework/cache/data',
@@ -15,9 +15,25 @@ foreach ($storageDirs as $dir) {
     }
 }
 
-// 2. Sobrescribir rutas hacia /tmp
+// 2. Definir variables de entorno para rutas de caché
 putenv('APP_STORAGE=/tmp/storage');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 
-// 3. Requerir el arranque normal de Laravel desde public/index.php
-require __DIR__ . '/../public/index.php';
+// 3. Cargar el autoloader de Composer
+require __DIR__ . '/../vendor/autoload.php';
+
+// 4. Inicializar la aplicación de Laravel y forzar la ruta de storage a /tmp
+$app = require_once __DIR__ . '/../bootstrap/app.php';
+
+$app->useStoragePath('/tmp/storage');
+
+// 5. Manejar la petición HTTP
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+
+$response->send();
+
+$kernel->terminate($request, $response);
