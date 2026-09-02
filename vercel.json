@@ -10,18 +10,13 @@
     },
     "outputDirectory": "public",
     "routes": [
-        {
-            "src": "/build/(.*)",
-            "dest": "/build/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
-        }
+        { "src": "/build/(.*)", "dest": "/build/$1" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
     ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
+        "QUEUE_CONNECTION": "sync",
         "CACHE_STORE": "array",
         "CACHE_DRIVER": "array",
         "SESSION_DRIVER": "cookie",
