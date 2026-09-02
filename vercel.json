@@ -22,12 +22,10 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "LOG_CHANNEL": "stderr",
         "CACHE_STORE": "array",
         "CACHE_DRIVER": "array",
         "SESSION_DRIVER": "cookie",
         "SESSION_LIFETIME": "120",
-        "QUEUE_CONNECTION": "sync",
-        "MAIL_MAILER": "log"
+        "LOG_CHANNEL": "stderr"
     }
 }
