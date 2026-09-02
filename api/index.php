@@ -1,6 +1,6 @@
 <?php
 
-// 1. Forzar variables en todos los superglobales
+// 1. Variables de entorno forzadas
 putenv('CACHE_DRIVER=array');
 putenv('CACHE_STORE=array');
 putenv('SESSION_DRIVER=cookie');
@@ -11,12 +11,7 @@ $_ENV['CACHE_STORE'] = 'array';
 $_ENV['SESSION_DRIVER'] = 'cookie';
 $_ENV['LOG_CHANNEL'] = 'stderr';
 
-$_SERVER['CACHE_DRIVER'] = 'array';
-$_SERVER['CACHE_STORE'] = 'array';
-$_SERVER['SESSION_DRIVER'] = 'cookie';
-$_SERVER['LOG_CHANNEL'] = 'stderr';
-
-// 2. Creación de directorios en /tmp
+// 2. Crear carpetas en /tmp
 $storageDirs = [
     '/tmp/storage/app',
     '/tmp/storage/framework/cache/data',
@@ -34,13 +29,21 @@ foreach ($storageDirs as $dir) {
 putenv('APP_STORAGE=/tmp/storage');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 
-// 3. Autoload y arranque
-require __DIR__ . '/../vendor/autoload.php';
+// 3. Resolver la raíz del proyecto de forma segura
+$basePath = realpath(__DIR__ . '/..');
 
-$app = require_once __DIR__ . '/../bootstrap/app.php';
+if (!$basePath || !file_exists($basePath . '/bootstrap/app.php')) {
+    // Fallback si Vercel ejecuta desde /var/task/user directamente
+    $basePath = '/var/task/user';
+}
+
+require $basePath . '/vendor/autoload.php';
+
+$app = require_once $basePath . '/bootstrap/app.php';
 
 $app->useStoragePath('/tmp/storage');
 
+// 4. Procesar petición HTTP
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
