@@ -5,8 +5,7 @@
         "api/index.php": {
             "runtime": "vercel-php@0.7.4",
             "memory": 1024,
-            "maxDuration": 30,
-            "includeFiles": "bootstrap/**"
+            "maxDuration": 30
         }
     },
     "outputDirectory": "public",
@@ -26,9 +25,6 @@
         "CACHE_STORE": "array",
         "CACHE_DRIVER": "array",
         "SESSION_DRIVER": "cookie",
-        "SESSION_LIFETIME": "120",
-        "LOG_CHANNEL": "stderr",
-        "APP_PACKAGES_CACHE": "/tmp/storage/framework/cache/packages.php",
-        "APP_SERVICES_CACHE": "/tmp/storage/framework/cache/services.php"
+        "LOG_CHANNEL": "stderr"
     }
 }
