@@ -2,9 +2,3 @@ vendor
 node_modules
 .env
 .env.example
-bootstrap
-cache
-.php
-bootstrap
-cache
-.gitignore
