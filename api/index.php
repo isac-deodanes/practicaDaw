@@ -47,6 +47,14 @@ $app = require_once $base . '/bootstrap/app.php';
 
 $app->useStoragePath('/tmp/storage');
 
+// 2. Forzar valores de configuración directamente en el Config Repository
+$app->booted(function ($app) {
+    $config = $app->make('config');
+    $config->set('session.driver', 'cookie');
+    $config->set('cache.default', 'array');
+    $config->set('queue.default', 'sync');
+});
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
