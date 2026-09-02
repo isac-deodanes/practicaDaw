@@ -11,6 +11,16 @@ $_ENV['CACHE_STORE'] = 'array';
 $_ENV['SESSION_DRIVER'] = 'cookie';
 $_ENV['LOG_CHANNEL'] = 'stderr';
 
+
+putenv('APP_PACKAGES_CACHE=/tmp/storage/framework/cache/packages.php');
+putenv('APP_SERVICES_CACHE=/tmp/storage/framework/cache/services.php');
+
+$_ENV['APP_PACKAGES_CACHE'] = '/tmp/storage/framework/cache/packages.php';
+$_ENV['APP_SERVICES_CACHE'] = '/tmp/storage/framework/cache/services.php';
+
+$_SERVER['APP_PACKAGES_CACHE'] = '/tmp/storage/framework/cache/packages.php';
+$_SERVER['APP_SERVICES_CACHE'] = '/tmp/storage/framework/cache/services.php';
+
 // 2. Crear carpetas en /tmp
 $storageDirs = [
     '/tmp/storage/app',

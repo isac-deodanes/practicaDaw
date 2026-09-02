@@ -2,8 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "build": "composer install --no-dev --optimize-autoloader && php artisan package:discover && vite build"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
