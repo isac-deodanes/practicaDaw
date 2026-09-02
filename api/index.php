@@ -1,22 +1,26 @@
 <?php
 
 // 1. Forzar variables para caché, sesiones y manifiestos a /tmp
-putenv('CACHE_DRIVER=array');
-putenv('CACHE_STORE=array');
-putenv('SESSION_DRIVER=cookie');
-putenv('LOG_CHANNEL=stderr');
-putenv('APP_PACKAGES_CACHE=/tmp/storage/framework/cache/packages.php');
-putenv('APP_SERVICES_CACHE=/tmp/storage/framework/cache/services.php');
-putenv('APP_CONFIG_CACHE=/tmp/storage/framework/cache/config.php');
-putenv('APP_ROUTES_CACHE=/tmp/storage/framework/cache/routes.php');
-putenv('APP_EVENTS_CACHE=/tmp/storage/framework/cache/events.php');
+$defaultEnv = [
+    'CACHE_DRIVER' => 'array',
+    'CACHE_STORE' => 'array',
+    'SESSION_DRIVER' => 'cookie',
+    'LOG_CHANNEL' => 'stderr',
+    'APP_PACKAGES_CACHE' => '/tmp/storage/framework/cache/packages.php',
+    'APP_SERVICES_CACHE' => '/tmp/storage/framework/cache/services.php',
+    'APP_CONFIG_CACHE' => '/tmp/storage/framework/cache/config.php',
+    'APP_ROUTES_CACHE' => '/tmp/storage/framework/cache/routes.php',
+    'APP_EVENTS_CACHE' => '/tmp/storage/framework/cache/events.php',
+];
 
-$_ENV['CACHE_DRIVER'] = 'array';
-$_ENV['CACHE_STORE'] = 'array';
-$_ENV['SESSION_DRIVER'] = 'cookie';
-$_ENV['LOG_CHANNEL'] = 'stderr';
-$_ENV['APP_PACKAGES_CACHE'] = '/tmp/storage/framework/cache/packages.php';
-$_ENV['APP_SERVICES_CACHE'] = '/tmp/storage/framework/cache/services.php';
+foreach ($defaultEnv as $key => $value) {
+    $current = getenv($key);
+    if ($current === false || $current === '') {
+        putenv("{$key}={$value}");
+        $_ENV[$key] = $value;
+        $_SERVER[$key] = $value;
+    }
+}
 
 // 2. Crear carpetas en /tmp
 $storageDirs = [
