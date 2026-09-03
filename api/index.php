@@ -1,6 +1,7 @@
 <?php
 
 // Forzar variables críticas en todos los entornos para serverless
+putenv('APP_MAINTENANCE_DRIVER=file');
 putenv('QUEUE_CONNECTION=sync');
 putenv('CACHE_STORE=array');
 putenv('CACHE_DRIVER=array');
@@ -9,12 +10,14 @@ putenv('LOG_CHANNEL=stderr');
 putenv('APP_PACKAGES_CACHE=/tmp/packages.php');
 putenv('APP_SERVICES_CACHE=/tmp/services.php');
 
+$_ENV['APP_MAINTENANCE_DRIVER'] = 'file';
 $_ENV['QUEUE_CONNECTION'] = 'sync';
 $_ENV['CACHE_STORE'] = 'array';
 $_ENV['CACHE_DRIVER'] = 'array';
 $_ENV['SESSION_DRIVER'] = 'cookie';
 $_ENV['LOG_CHANNEL'] = 'stderr';
 
+$_SERVER['APP_MAINTENANCE_DRIVER'] = 'file';
 $_SERVER['QUEUE_CONNECTION'] = 'sync';
 $_SERVER['CACHE_STORE'] = 'array';
 $_SERVER['CACHE_DRIVER'] = 'array';
