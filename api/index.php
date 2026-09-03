@@ -9,6 +9,8 @@ putenv('SESSION_DRIVER=database');
 putenv('LOG_CHANNEL=stderr');
 putenv('APP_PACKAGES_CACHE=/tmp/packages.php');
 putenv('APP_SERVICES_CACHE=/tmp/services.php');
+putenv('SESSION_DRIVER=database');
+putenv('SESSION_SECURE_COOKIE=true');
 
 $_ENV['APP_MAINTENANCE_DRIVER'] = 'file';
 $_ENV['QUEUE_CONNECTION'] = 'sync';
@@ -16,6 +18,8 @@ $_ENV['CACHE_STORE'] = 'array';
 $_ENV['CACHE_DRIVER'] = 'array';
 $_ENV['SESSION_DRIVER'] = 'database';
 $_ENV['LOG_CHANNEL'] = 'stderr';
+$_ENV['SESSION_DRIVER'] = 'database';
+$_ENV['SESSION_SECURE_COOKIE'] = 'true';
 
 $_SERVER['APP_MAINTENANCE_DRIVER'] = 'file';
 $_SERVER['QUEUE_CONNECTION'] = 'sync';
@@ -23,6 +27,8 @@ $_SERVER['CACHE_STORE'] = 'array';
 $_SERVER['CACHE_DRIVER'] = 'array';
 $_SERVER['SESSION_DRIVER'] = 'database';
 $_SERVER['LOG_CHANNEL'] = 'stderr';
+$_SERVER['SESSION_DRIVER'] = 'database';
+$_SERVER['SESSION_SECURE_COOKIE'] = 'true';
 
 // Crear directorios temporales
 $dirs = [
