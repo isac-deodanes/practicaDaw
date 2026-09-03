@@ -30,7 +30,7 @@
             Contraseña: <b>12345678</b>
         </div>
 
-        <form action="{{ route('login.post') }}" method="POST">
+        <form action="/login" method="POST">
 
             @csrf
             <div class="form-group">

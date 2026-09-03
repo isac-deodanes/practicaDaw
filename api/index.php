@@ -48,6 +48,14 @@ foreach ($dirs as $dir) {
 putenv('APP_STORAGE=/tmp/storage');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 
+$_ENV['APP_STORAGE'] = '/tmp/storage';
+$_ENV['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
+
+$_SERVER['APP_STORAGE'] = '/tmp/storage';
+$_SERVER['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
+
+require __DIR__ . '/../public/index.php';
+
 $base = dirname(__DIR__);
 
 require $base . '/vendor/autoload.php';
