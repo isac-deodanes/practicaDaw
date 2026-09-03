@@ -14,7 +14,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="brand">
-                <a href="{{ route('inicio.index') }}">
+                <a href="{{ route('inicio') }}">
                     <img src="{{ asset('laravel.svg') }}" alt="img" width="45">
                 </a>
             </div>
@@ -23,10 +23,10 @@
             </button>
 
             <div class="nav-menu" id="navMenu">
-                <a href="{{ route('inicio.index') }}">INICIO</a>
-                <a href="{{ route('empleado.index') }}">EMPLEADOS</a>
-                <a href="{{ route('producto.index') }}">PRODUCTOS</a>
-                <a href="{{ route('proveedor.index') }}">PROVEEDORES</a>
+                <a href="{{ route('inicio') }}">INICIO</a>
+                <a href="{{ route('empleados.index') }}">EMPLEADOS</a>
+                <a href="{{ route('productos.index') }}">PRODUCTOS</a>
+                <a href="{{ route('proveedores.index') }}">PROVEEDORES</a>
                 <!-- Perfil -->
 
                  <a href="#" class="mobile-profile">MI PERFIL</a>
