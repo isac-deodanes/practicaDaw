@@ -38,7 +38,7 @@
         "QUEUE_CONNECTION": "sync",
         "CACHE_STORE": "array",
         "CACHE_DRIVER": "array",
-        "SESSION_DRIVER": "cookie",
+        "SESSION_DRIVER": "database",
         "SESSION_SECURE_COOKIE": "true",
         "LOG_CHANNEL": "stderr"
     }
