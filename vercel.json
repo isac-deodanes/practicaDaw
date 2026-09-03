@@ -11,8 +11,20 @@
     "outputDirectory": "public",
     "routes": [
         {
+            "src": "/css/(.*)",
+            "dest": "/css/$1"
+        },
+        {
+            "src": "/js/(.*)",
+            "dest": "/js/$1"
+        },
+        {
             "src": "/build/(.*)",
             "dest": "/build/$1"
+        },
+        {
+            "src": "/favicon.ico",
+            "dest": "/favicon.ico"
         },
         {
             "src": "/(.*)",
@@ -21,7 +33,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_MAINTENANCE_DRIVER": "file",
         "QUEUE_CONNECTION": "sync",
         "CACHE_STORE": "array",
