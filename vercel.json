@@ -1,45 +1,35 @@
 {
-    "version": 2,
-    "framework": null,
-    "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.7.4",
-            "memory": 1024,
-            "maxDuration": 30
-        }
-    },
-    "outputDirectory": "public",
-    "routes": [
-        {
-            "src": "/css/(.*)",
-            "dest": "/css/$1"
-        },
-        {
-            "src": "/js/(.*)",
-            "dest": "/js/$1"
-        },
-        {
-            "src": "/build/(.*)",
-            "dest": "/build/$1"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/favicon.ico"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
-        }
-    ],
-    "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "false",
-        "APP_MAINTENANCE_DRIVER": "file",
-        "QUEUE_CONNECTION": "sync",
-        "CACHE_STORE": "array",
-        "CACHE_DRIVER": "array",
-        "SESSION_DRIVER": "database",
-        "SESSION_SECURE_COOKIE": "true",
-        "LOG_CHANNEL": "stderr"
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.3",
+      "memory": 1024,
+      "maxDuration": 30
     }
+  },
+  "routes": [
+    {
+      "src": "/build/(.*)",
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/(css|js|images|favicon.ico|robots.txt)(.*)",
+      "dest": "/public/$1$2"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_MAINTENANCE_DRIVER": "file",
+    "QUEUE_CONNECTION": "sync",
+    "CACHE_STORE": "array",
+    "CACHE_DRIVER": "array",
+    "SESSION_DRIVER": "database",
+    "SESSION_SECURE_COOKIE": "true",
+    "LOG_CHANNEL": "stderr"
+  }
 }
