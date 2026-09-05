@@ -31,7 +31,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_MAINTENANCE_DRIVER": "file",
         "QUEUE_CONNECTION": "sync",
         "CACHE_STORE": "array",

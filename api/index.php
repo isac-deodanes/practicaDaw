@@ -1,6 +1,5 @@
 <?php
 
-// 1. Crear directorios en /tmp con permisos de escritura
 $storageDirs = [
     '/tmp/storage/app',
     '/tmp/storage/framework/cache/data',
@@ -15,7 +14,6 @@ foreach ($storageDirs as $dir) {
     }
 }
 
-// 2. Definir rutas temporales de almacenamiento
 putenv('APP_STORAGE=/tmp/storage');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 putenv('APP_MAINTENANCE_DRIVER=file');
@@ -28,5 +26,4 @@ $_SERVER['APP_STORAGE'] = '/tmp/storage';
 $_SERVER['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
 $_SERVER['APP_MAINTENANCE_DRIVER'] = 'file';
 
-// 3. Ejecutar Laravel normalmente
 require __DIR__ . '/../public/index.php';

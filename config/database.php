@@ -57,15 +57,9 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? (function () {
-                $opts = [
-                    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-                ];
-                if ($ca = env('MYSQL_ATTR_SSL_CA')) {
-                    $opts[PDO::MYSQL_ATTR_SSL_CA] = $ca;
-                }
-                return $opts;
-            })() : [],
+            'options' => extension_loaded('pdo_mysql') ? [
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+            ] : [],
         ],
 
         'mariadb' => [
