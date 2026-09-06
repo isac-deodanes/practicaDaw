@@ -1,5 +1,11 @@
 <?php
 
+// Mostrar errores en pantalla si PHP crashea
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+// 1. Crear directorios en /tmp
 $storageDirs = [
     '/tmp/storage/app',
     '/tmp/storage/framework/cache/data',
@@ -14,6 +20,7 @@ foreach ($storageDirs as $dir) {
     }
 }
 
+// 2. Definir variables de storage
 putenv('APP_STORAGE=/tmp/storage');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 putenv('APP_MAINTENANCE_DRIVER=file');
@@ -26,4 +33,11 @@ $_SERVER['APP_STORAGE'] = '/tmp/storage';
 $_SERVER['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
 $_SERVER['APP_MAINTENANCE_DRIVER'] = 'file';
 
-require __DIR__ . '/../public/index.php';
+// 3. Verificar existencia del archivo antes de requerirlo
+$publicIndex = dirname(__DIR__) . '/public/index.php';
+
+if (!file_exists($publicIndex)) {
+    die("Error fatal: No se encuentra el archivo en la ruta: " . $publicIndex);
+}
+
+require $publicIndex;
