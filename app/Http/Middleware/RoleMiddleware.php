@@ -20,15 +20,11 @@ class RoleMiddleware
             return redirect()->route('login');
         }
 
-        // Si los roles vinieron como una cadena separada por comas en el primer índice
-        if (count($roles) === 1 && str_contains($roles[0], ',')) {
-            $roles = explode(',', $roles[0]);
-        }
+        $allowedRoles = is_string($roles)
+            ? array_map('trim', explode(',', $roles))
+            : array_map('trim', (array) $roles);
 
-        // Asegurar que sea array y limpiar espacios en blanco
-        $allowedRoles = array_map('trim', (array) $roles);
-
-        if (!in_array(Auth::user()->role, $allowedRoles, true)) {
+        if (!in_array(Auth::user()->rol, $allowedRoles, true)) {
             abort(403, 'No tienes permiso para acceder a esta sección.');
         }
         return $next($request);

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\proveedores;
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +17,7 @@ class ProveedorController extends Controller
     {
         //
         // return view('empleado.index');
-        $proveedor['proveedores'] = proveedores::with('user')->paginate(10);
+        $proveedor['Proveedores'] = Proveedores::with('user')->paginate(10);
         return view('proveedor.indexProveedor', $proveedor);
     }
 
@@ -65,7 +65,7 @@ class ProveedorController extends Controller
 
 
             // Crear proveedor
-            proveedores::create([
+            Proveedores::create([
                 'user_id' => $user->id,
                 'telefono' => $request->telefono,
                 'direccion'=> $request->direccion,
@@ -73,13 +73,13 @@ class ProveedorController extends Controller
             ]);
         });
 
-        return redirect('proveedor')->with('mensaje', 'proveedor agregado con éxito');
+        return redirect()->route('proveedores.index')->with('mensaje', 'proveedor agregado con éxito');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(proveedores $proveedor)
+    public function show(Proveedores $proveedor)
     {
         //
     }
@@ -90,7 +90,7 @@ class ProveedorController extends Controller
     public function edit($id)
     {
         //
-        $proveedor = proveedores::findOrFail($id);
+        $proveedor = Proveedores::findOrFail($id);
         return view('proveedor.editProveedor', compact('proveedor'));
     }
 
@@ -99,7 +99,7 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $proveedor = proveedores::with('user')->findOrFail($id);
+        $proveedor = Proveedores::with('user')->findOrFail($id);
 
         // campos de la tabla user
         $proveedor->user->update([
@@ -108,13 +108,13 @@ class ProveedorController extends Controller
             'password' => $request->input('password')
         ]);
 
-        // campos de la tabla proveedores
+        // campos de la tabla Proveedores
         $proveedor->update([
             'telefono' => $request->input('telefono'),
             'direccion' => $request->input('direccion'),
             'tipo_proveedor' => $request->input('tipo_proveedor')
         ]);
-        return redirect('proveedor')->with('mensaje', 'proveedor actualizado');
+        return redirect()->route('proveedores.index')->with('mensaje', 'proveedor actualizado');
     }
 
     /**
@@ -123,7 +123,7 @@ class ProveedorController extends Controller
     public function destroy($id)
     {
         // funcion para eliminar el registro
-        proveedores::destroy($id);
-        return redirect('proveedor')->with('mensaje', 'proveedor eliminado');
+        Proveedores::destroy($id);
+        return redirect()->route('proveedores.index')->with('mensaje', 'proveedor eliminado');
     }
 }

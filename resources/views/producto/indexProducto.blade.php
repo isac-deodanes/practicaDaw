@@ -8,8 +8,8 @@
 
     <h1>Lista de productos</h1>
     <div class="nav-usuario">
-        <a class="btn-regresar" href="{{ url('producto/create') }}"><img src="{{ asset('icon-add.svg') }}" width="30" alt=""> Nuevo Producto</a>
-        <a class="btn-reporte" href="{{ route('reporte.producto') }}"><img src="{{ asset('icon-report.svg') }}" width="30" alt=""> Generar reporte</a>
+        <a class="btn-regresar" href="{{ url('productos/create') }}"><img src="{{ asset('icon-add.svg') }}" width="30" alt=""> Nuevo Producto</a>
+        <a class="btn-reporte" href="{{ route('reporte.productos') }}"><img src="{{ asset('icon-report.svg') }}" width="30" alt=""> Generar reporte</a>
 
     </div>
 
@@ -38,8 +38,8 @@
            
 
                 <td>
-                    <a class="boton-edit" href="{{ route('producto.edit', $producto->id) }}"><img src="{{ asset('icon-edit.svg') }}" width="30" alt=""> EDITAR</a>
-                    <form class="form-boton-delete" action="{{ route('producto.destroy', $producto->id) }}" method="POST" style="display:inline">
+                    <a class="boton-edit" href="{{ route('productos.edit', $producto->id) }}"><img src="{{ asset('icon-edit.svg') }}" width="30" alt=""> EDITAR</a>
+                    <form class="form-boton-delete" action="{{ route('productos.destroy', $producto->id) }}" method="POST" style="display:inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('¿Seguro de eliminar?')"><img src="{{ asset('trash.svg') }}" width="26" alt=""> ELIMINAR</button>

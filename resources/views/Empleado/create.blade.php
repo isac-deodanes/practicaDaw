@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="nav-usuario">
-        <a class="btn-regresar" href="{{ route('empleado.index') }}">Volver al listado</a>
+        <a class="btn-regresar" href="{{ route('empleados.index') }}">Volver al listado</a>
         
     </div>
     <h1>Nuevo Empleado</h1>
-    <form action="{{ route('empleado.store') }}" method="POST">
+    <form action="{{ route('empleados.store') }}" method="POST">
         @csrf
         <label>Nombre:</label>
         <input type="text" name="name" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]{2,50}"><br>

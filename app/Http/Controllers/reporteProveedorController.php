@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\proveedores;
+use App\Models\Proveedores;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class reporteProveedorController extends Controller
 {
     //
-    public function generar()
+    public function generarReporte()
     {
-        $proveedores = proveedores::all(); // obtenemos todos 
+        $proveedores = Proveedores::all(); // obtenemos todos 
 
         $pdf = Pdf::loadView('reportes.reporteProveedor', compact('proveedores'));
 

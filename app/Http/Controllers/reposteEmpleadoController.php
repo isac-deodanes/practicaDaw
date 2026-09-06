@@ -10,8 +10,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class reposteEmpleadoController extends Controller
 {
     //
-    public function generar()
-    {
+    public function generarReporte(){
         $empleados = Empleado::all(); // obtenemos todos los empleados 
 
         $pdf = Pdf::loadView('reportes.reporteEmpleado', compact('empleados'));

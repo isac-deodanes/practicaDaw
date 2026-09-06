@@ -4,13 +4,13 @@
 
     <!-- <link rel="stylesheet" href="css.css"> -->
     <div class="nav-usuario">
-        <a class="btn-regresar" href="{{ route('proveedor.index') }}">Volver al listado</a>
+        <a class="btn-regresar" href="{{ route('proveedores.index') }}">Volver al listado</a>
 
     </div>
 
     <h1>Nuevo Proveedor</h1>
 
-    <form action="{{ route('proveedor.store') }}" method="POST">
+    <form action="{{ route('proveedores.store') }}" method="POST">
         @csrf
         <label>Nombre del proveedor:</label>
         <input type="text" name="name" required><br>

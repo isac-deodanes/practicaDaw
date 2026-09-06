@@ -1,6 +1,6 @@
 <!-- Formulario base / -->
 
-<form action="{{ route('producto.store') }}" method="POST">
+<form action="{{ route('productos.store') }}" method="POST">
   @csrf
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" value="{{ isset($producto->nombre)?$producto->nombre:'' }}"> required >

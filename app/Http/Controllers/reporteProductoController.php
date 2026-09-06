@@ -9,7 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class reporteProductoController extends Controller
 {
     //
-    public function generar(){
+    public function generarReporte(){
 
         $producto = producto::all();   //botenenmos todos los produccto
         $pdf = Pdf::loadView("reportes.reporteProducto",compact("producto"));

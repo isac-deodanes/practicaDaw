@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
-use App\Models\proveedores;
+use App\Models\Proveedores;
 use App\Models\producto;
 
 class DashboardController extends Controller
@@ -12,11 +12,11 @@ class DashboardController extends Controller
 
     public function index(){
         $totalEmpleado = Empleado::count();
-        $totalProveedores = proveedores::count();
+        $totalProveedores = Proveedores::count();
         $totalProductos = producto::count();
 
         $ultimoEmpleado = Empleado::orderBy('id', 'desc')->first();
-        $ultimoProveedor = proveedores::orderBy('id', 'desc')->first();
+        $ultimoProveedor = Proveedores::orderBy('id', 'desc')->first();
         $ultimoProducto = producto::orderBy('id', 'desc')->first();
 
 

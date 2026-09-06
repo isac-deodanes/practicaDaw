@@ -5,12 +5,12 @@
 @section('content')
 
     <div class="nav-usuario">
-        <a class="btn-regresar" href="{{ route('empleado.index') }}">Volver al listado</a>
+        <a class="btn-regresar" href="{{ route('empleados.index') }}">Volver al listado</a>
         
     </div>
     <h1>Editar Empleado</h1>
 
-    <form action="{{ route('empleado.update', $empleado->id) }}" method="POST">
+    <form action="{{ route('empleados.update', $empleado->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -49,5 +49,5 @@
         <button type="submit">Actualizar</button>
     </form>
 
-    <!-- <a href="{{ route('empleado.index') }}">Volver al listado</a> -->
+    <!-- <a href="{{ route('empleados.index') }}">Volver al listado</a> -->
 @endsection

@@ -7,8 +7,8 @@
     @endphp
     <h1>Lista de Proveedor</h1>
     <div class="nav-usuario">
-        <a class="btn-regresar" href="{{ url('proveedor/create') }}"><img src="{{ asset('icon-add.svg') }}" width="30" alt=""> Nuevo Proveedor</a>
-        <a class="btn-reporte" href="{{ route('reporte.proveedor') }}"><img src="{{ asset('icon-report.svg') }}" width="30" alt=""> Generar reporte</a>
+        <a class="btn-regresar" href="{{ route('proveedores.create') }}"><img src="{{ asset('icon-add.svg') }}" width="30" alt=""> Nuevo Proveedor</a>
+        <a class="btn-reporte" href="{{ route('reporte.proveedores') }}"><img src="{{ asset('icon-report.svg') }}" width="30" alt=""> Generar reporte</a>
 
     </div>
 
@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($proveedores as $proveedor)
+                @foreach ($Proveedores as $proveedor)
                     <tr>
                         <td>{{ $contProveedor++ }}</td>
                         <td>{{ $proveedor->user->name }}</td>
@@ -42,8 +42,8 @@
 
 
                         <td>
-                            <a class="boton-edit" href="{{ route('proveedor.edit', $proveedor->id) }}"><img src="{{ asset('icon-edit.svg') }}" width="30" alt="">EDITAR</a>
-                            <form class="form-boton-delete" action="{{ route('proveedor.destroy', $proveedor->id) }}"
+                            <a class="boton-edit" href="{{ route('proveedores.edit', $proveedor->id) }}"><img src="{{ asset('icon-edit.svg') }}" width="30" alt="">EDITAR</a>
+                            <form class="form-boton-delete" action="{{ route('proveedores.destroy', $proveedor->id) }}"
                                 method="POST" style="display:inline">
                                 @csrf
                                 @method('DELETE')
@@ -56,5 +56,5 @@
         </table>
     </div>
 
-    {{ $proveedores->links() }}
+    {{ $Proveedores->links() }}
 @endsection

@@ -3,13 +3,13 @@
 @extends('layouts.app')
 @section('content')
   <div class="nav-usuario">
-    <a class="btn-regresar" href="{{ route('producto.index') }}">Volver al listado</a>
+    <a class="btn-regresar" href="{{ route('productos.index') }}">Volver al listado</a>
 
   </div>
 
     <h1>Editar Producto</h1>
 
-    <form action="{{ route('producto.update', $producto->id) }}" method="POST">
+    <form action="{{ route('productos.update', $producto->id) }}" method="POST">
         @csrf
         @method('PUT')  
 

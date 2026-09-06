@@ -4,13 +4,13 @@
 
     <!-- <link rel="stylesheet" href="css.css"> -->
     <div class="nav-usuario">
-        <a class="btn-regresar" href="{{ route('proveedor.index') }}">Volver al listado</a>
+        <a class="btn-regresar" href="{{ route('proveedores.index') }}">Volver al listado</a>
 
     </div>
  
     <h1>Editar Proveedor</h1>
 
-    <form action="{{ route('proveedor.update',$proveedor->id) }}" method="POST">
+    <form action="{{ route('proveedores.update',$proveedor->id) }}" method="POST">
         @csrf
         @method('PUT')  
 
