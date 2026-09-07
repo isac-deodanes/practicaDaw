@@ -4,6 +4,7 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
@@ -57,27 +58,16 @@ $_SERVER['CACHE_STORE'] = getenv('CACHE_STORE') ?: 'file';
 $_SERVER['QUEUE_CONNECTION'] = getenv('QUEUE_CONNECTION') ?: 'sync';
 $_SERVER['FILESYSTEM_DISK'] = getenv('FILESYSTEM_DISK') ?: 'local';
 
-$maintenancePath = $appStorage . '/framework/maintenance.php';
-if (file_exists($maintenancePath)) {
-    require $maintenancePath;
+if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php')) {
+    require $maintenance;
 }
 
 require __DIR__ . '/../vendor/autoload.php';
 
-try {
-    $app = require __DIR__ . '/../bootstrap/app.php';
-    $app->handleRequest(Request::capture());
-} catch (\Throwable $e) {
-    echo "<h1>Error Fatal Capturado:</h1>";
-    echo "<p><strong>Mensaje:</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
-    echo "<p><strong>Archivo:</strong> " . htmlspecialchars($e->getFile()) . " en línea " . $e->getLine() . "</p>";
-    echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
-    exit;
-}
+$app = require __DIR__ . '/../bootstrap/app.php';
 
-$publicIndex = dirname(__DIR__) . '/public/index.php';
-if (!file_exists($publicIndex)) {
-    die("Error fatal: No se encuentra el archivo en la ruta: " . $publicIndex);
-}
-
-require $publicIndex;
+$request = Request::capture();
+$kernel = $app->make(Kernel::class);
+$response = $kernel->handle($request);
+$response->send();
+$kernel->terminate($request, $response);
