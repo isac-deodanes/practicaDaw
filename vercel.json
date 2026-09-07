@@ -34,7 +34,7 @@
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://tu-dominio.vercel.app",
-        "APP_KEY": "",
+        "APP_KEY": "base64:3PRkO0lufwa2cEauAT8dgVUoE1UCUjD/8F+iK63HGXM=",
         "APP_STORAGE": "/tmp/storage",
         "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
         "APP_MAINTENANCE_DRIVER": "file",

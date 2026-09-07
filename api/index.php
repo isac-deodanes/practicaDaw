@@ -25,8 +25,11 @@ foreach ($storageDirs as $dir) {
     }
 }
 
+$defaultAppKey = 'base64:3PRkO0lufwa2cEauAT8dgVUoE1UCUjD/8F+iK63HGXM=';
+
 putenv('APP_ENV=' . (getenv('APP_ENV') ?: 'production'));
 putenv('APP_DEBUG=' . (getenv('APP_DEBUG') ?: 'false'));
+putenv('APP_KEY=' . (getenv('APP_KEY') ?: $defaultAppKey));
 putenv('APP_STORAGE=' . $appStorage);
 putenv('VIEW_COMPILED_PATH=' . $appStorage . '/framework/views');
 putenv('APP_MAINTENANCE_DRIVER=' . (getenv('APP_MAINTENANCE_DRIVER') ?: 'file'));
@@ -38,6 +41,7 @@ putenv('FILESYSTEM_DISK=' . (getenv('FILESYSTEM_DISK') ?: 'local'));
 
 $_ENV['APP_ENV'] = getenv('APP_ENV') ?: 'production';
 $_ENV['APP_DEBUG'] = getenv('APP_DEBUG') ?: 'false';
+$_ENV['APP_KEY'] = getenv('APP_KEY') ?: $defaultAppKey;
 $_ENV['APP_STORAGE'] = $appStorage;
 $_ENV['VIEW_COMPILED_PATH'] = $appStorage . '/framework/views';
 $_ENV['APP_MAINTENANCE_DRIVER'] = getenv('APP_MAINTENANCE_DRIVER') ?: 'file';
@@ -49,6 +53,7 @@ $_ENV['FILESYSTEM_DISK'] = getenv('FILESYSTEM_DISK') ?: 'local';
 
 $_SERVER['APP_ENV'] = getenv('APP_ENV') ?: 'production';
 $_SERVER['APP_DEBUG'] = getenv('APP_DEBUG') ?: 'false';
+$_SERVER['APP_KEY'] = getenv('APP_KEY') ?: $defaultAppKey;
 $_SERVER['APP_STORAGE'] = $appStorage;
 $_SERVER['VIEW_COMPILED_PATH'] = $appStorage . '/framework/views';
 $_SERVER['APP_MAINTENANCE_DRIVER'] = getenv('APP_MAINTENANCE_DRIVER') ?: 'file';
