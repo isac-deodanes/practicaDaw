@@ -55,14 +55,17 @@ foreach ($storageDirs as $dir) {
 putenv('APP_STORAGE=/tmp/storage');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 putenv('APP_MAINTENANCE_DRIVER=file');
+putenv('LOG_CHANNEL=stderr');
 
 $_ENV['APP_STORAGE'] = '/tmp/storage';
 $_ENV['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
 $_ENV['APP_MAINTENANCE_DRIVER'] = 'file';
+$_ENV['LOG_CHANNEL'] = 'stderr';
 
 $_SERVER['APP_STORAGE'] = '/tmp/storage';
 $_SERVER['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
 $_SERVER['APP_MAINTENANCE_DRIVER'] = 'file';
+$_SERVER['LOG_CHANNEL'] = 'stderr';
 
 // 3. Verificar existencia del archivo antes de requerirlo
 $publicIndex = dirname(__DIR__) . '/public/index.php';
