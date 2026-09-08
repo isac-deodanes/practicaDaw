@@ -75,7 +75,7 @@ class EmpleadoController extends Controller
             ]);
         });
 
-        return redirect('empleado')->with('mensaje', 'Empleado agregado con éxito');
+        return redirect('empleados')->with('mensaje', 'Empleado agregado con éxito');
     }
 
     /**
@@ -117,7 +117,7 @@ class EmpleadoController extends Controller
             'area'=> $request->input('area')
         ]);
 
-        return redirect('empleado')->with('mensaje', 'Empleado actualizado');
+        return redirect('empleados')->with('mensaje', 'Empleado actualizado');
     }
 
     /**
@@ -126,7 +126,7 @@ class EmpleadoController extends Controller
     public function destroy($id)
     {
         Empleado::destroy($id);
-        return redirect('empleado')->with('mensaje', 'Empleado eliminado');
+        return redirect('empleados')->with('mensaje', 'Empleado eliminado');
     }
 
 }

@@ -34,7 +34,7 @@ class ProductoController extends Controller
         $datosProducto=request()->except('_token');
         producto::insert($datosProducto);  //este cmd inserta a la db
         // return response ()->json($datosEmpleado);
-        return redirect('producto')->with('mensaje', 'producto agregado con éxito');
+        return redirect('productos')->with('mensaje', 'producto agregado con éxito');
 
     }
 
