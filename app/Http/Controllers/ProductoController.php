@@ -63,7 +63,7 @@ class ProductoController extends Controller
     {
         $datosProducto = $request->except(['_token', '_method']);
         producto::where('id', '=', $id)->update($datosProducto);
-        return redirect('producto')->with('mensaje', 'producto actualizado');
+        return redirect('productos')->with('mensaje', 'producto actualizado');
     }
 
     /**
@@ -73,7 +73,7 @@ class ProductoController extends Controller
     {
         // funcion para eliminar el registro
         producto::destroy($id);
-        return redirect('producto')->with('mensaje', 'producto eliminado');
+        return redirect('productos')->with('mensaje', 'producto eliminado');
     }
 
 }
