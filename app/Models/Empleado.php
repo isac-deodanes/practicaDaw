@@ -9,15 +9,15 @@ use App\Models\User;
 class Empleado extends Model
 {
     use HasFactory;
-
+    protected $table = 'empleados';
     protected $fillable = [
-        'user_id', 
-        'apellido', 
-        'dui', 
-        'telefono', 
-        'salario', 
+        'user_id',
+        'apellido',
+        'dui',
+        'telefono',
+        'salario',
         'area'
-        ];
+    ];
 
     public function user()
     {

@@ -9,6 +9,8 @@ use App\Models\User;
 class Proveedores extends Model
 {
     //
+    protected $table = 'proveedores';
+    
     protected $fillable = [
         'user_id',
         'telefono',
